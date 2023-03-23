@@ -109,7 +109,7 @@ function callBtn(){
   const task5Id = document.getElementById('task5_result');
   task5Id.innerHTML = '';  
   numInput = [...numInput].sort((a, b) => a - b);
-  console.log(numInput);
+  console.log('sorted array - ' + numInput);
   for(let i = 1 ; i <= numInput.length ; i++){
     const slicedArray = numInput.slice(0, i);
     let output = getMedian(slicedArray)
