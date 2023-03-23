@@ -30,7 +30,6 @@ const carlogId = document.getElementById('carlog_result');
 
 console.log('---------------- Task 2 Result --------------');
 for(let i = 0; i < data.length; i++){
-  console.log (data[i])
   let tempFun = logCar.bind(data[i]);
   carlogId.append(tempFun() + ', '); // shown data on page too 
 }
@@ -77,7 +76,6 @@ const mapData = mapInput
 
 let mapArray = new Map();
 mapData.forEach(function(item){
-  console.log(item);
   mapArray.set(item.targetDate, item);
 });
 
@@ -105,10 +103,7 @@ for(let i = 1 ; i < numInput.length ; i++){
 
 function getMedian(arr) {
   const mid = Math.floor(arr.length / 2),
-    if(arr.length == 0){
-      return arr[0];
-    }
-    else if(arr.length % 2 !== 0){
+    if(arr.length % 2 !== 0){
       return arr[mid];
     }
     else{
