@@ -89,16 +89,34 @@ task4Id.innerHTML = JSON.stringify(objTemp);
 // ------------- Task 5 -------------
 
 console.log('---------------- Task 5 Result --------------');
+const element = document.getElementById('txt-area');
 
-let numInput = [5,4,3,2,1];
-const task5Id = document.getElementById('task5_result');
-numInput = [...numInput].sort((a, b) => a - b);
-for(let i = 1 ; i < numInput.length ; i++){
-  const slicedArray = numInput.slice(0, i);
-  let output = getMedian(slicedArray)
-  console.log(output);
-  task5Id.innerHTML += '<br/>';  
-  task5Id.append(output);
+element.addEventListener('input', callFun);
+
+const elementBtn = document.getElementById('btnCheck');
+elementBtn.addEventListener('click', callBtn);
+//let numInput = [5,4,3,2,1];
+let numInput = []
+function callFun(event) {  /* javascript */
+  //let numInput = [5,4,3,2,1];
+  numInput = event.currentTarget.value
+              .split('\n')
+              .filter((t) => !!t)
+              .map((i) => JSON.parse(i));
+}
+
+function callBtn(){
+  const task5Id = document.getElementById('task5_result');
+  task5Id.innerHTML = '';  
+  numInput = [...numInput].sort((a, b) => a - b);
+  console.log(numInput);
+  for(let i = 1 ; i <= numInput.length ; i++){
+    const slicedArray = numInput.slice(0, i);
+    let output = getMedian(slicedArray)
+    console.log(output);
+    task5Id.innerHTML += '<br/>';  
+    task5Id.append(output);
+  }
 }
 
 function getMedian(arr) {
